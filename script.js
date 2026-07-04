@@ -1,15 +1,3 @@
-  GNU nano 9.1                                   script.js                                   Modified
-    taskInput.value = ''; // очищаем поле
-  }
-
-  addBtn.addEventListener('click', addTask);
-
-  // чтобы можно было добавить задачу по нажатию Enter
-  taskInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') addTask();
-  });
-</script>
-  GNU nano 9.1                                   script.js
 <script>
   const taskInput = document.getElementById('taskInput');
   const addBtn = document.getElementById('addBtn');
