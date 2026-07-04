@@ -1,11 +1,17 @@
-<script>
+document.addEventListener('DOMContentLoaded', () => {
   const taskInput = document.getElementById('taskInput');
   const addBtn = document.getElementById('addBtn');
   const taskList = document.getElementById('taskList');
 
+  // Проверка: если элементов нет, выходим, чтобы не было ошибок в консоли
+  if (!taskInput || !addBtn || !taskList) {
+    console.error('Не найдены элементы taskInput, addBtn или taskList. Проверь ID в HTML.');
+    return;
+  }
+
   function addTask() {
     const taskText = taskInput.value.trim();
-    if (taskText === '') return; // не добавляем пустые задачи
+    if (taskText === '') return;
 
     const li = document.createElement('li');
     li.className = 'task-item';
@@ -23,24 +29,12 @@
     li.appendChild(span);
 
     taskList.appendChild(li);
-    taskInput.value = ''; // очищаем поле
+    taskInput.value = '';
   }
 
   addBtn.addEventListener('click', addTask);
 
-  // чтобы можно было добавить задачу по нажатию Enter
   taskInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addTask();
   });
-</script>
-
-
-
-
-
-
-
-
-
-
-
+});
